@@ -1,4 +1,5 @@
 <launch>
     <node pkg="sudoku_pkg2" name="server_node1" type="sudoku_solving.py" output="screen"/>
     <node pkg="sudoku_pkg2" name="client_node" type="sudoku_client.py" output="screen"/>
-    </launch>
+    <node pkg="sudoku_pkg2" name="server_node2" type="sudoku_placing.py" output="screen"/>
+</launch>

@@ -59,7 +59,6 @@ def assign(i,j):
 
 
 def handle_sudoku_algo(req):
-    print(req.data)
     for i in range(9):
         for j in range(9):
             l[i][j]=req.data[i*9+j]

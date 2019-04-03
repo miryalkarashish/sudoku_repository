@@ -1,6 +1,4 @@
-
 //might get some problem with color check carefully with all specified colors for safe side.
-
 
 #include <Stepper.h>
 
@@ -8,8 +6,8 @@ const int stepPin_x = 1;         //set steppin and dirpin
 const int dirPin_x = 2;
 const int stepPin_y = 3;
 const int dirPin_y = 4;
-int dir_x=1;             //these values should not be changed
-int dir_y=2;
+int dir_x=1;             //be careful these values should not be changed
+int dir_y=1;
 
 #define S0 8      //pins color sensor to arduino
 #define S1 5
@@ -69,12 +67,14 @@ void movstepper_y(int val){
     flag=1;
     change_dir_y();
   }
-  for(int i=0;i<200*1;i++){   //specify no. of rev. in place of 1 in i=200*1 in y direction
+  for(int i=0;i<200*(20/8);i++){   //specify no. of rev. in place of 1 in i=200*1 in y direction
     digitalWrite(stepPin_x,HIGH);
-    delayMicroseconds(500);
+    delayMicroseconds(1000);
+    digitalWrite(stepPin_x,LOW);
+    delayMicroseconds(1000);
   }
   if(flag==1){
-    change_dir_x();
+    change_dir_y();
   }
 }
 
@@ -86,10 +86,12 @@ void movstepper_x(int val){
     flag=1;
     change_dir_x();
   }
-  for(int i=0;i<200*1;i++){   //specify no. of rev. in place of 1 in i=200*1 in x direction
+  for(int i=0;i<200*(20/8);i++){   //specify no. of rev. in place of 1 in i=200*1 in x direction
                               //rev=(dist between 2 adjecent blocks)/(lead of lead screw in x dir)
     digitalWrite(stepPin_x,HIGH);
-    delayMicroseconds(500);
+    delayMicroseconds(1000);
+    digitalWrite(stepPin_x,LOW);
+    delayMicroseconds(1000);
   }
   if(flag==1){
     change_dir_x();

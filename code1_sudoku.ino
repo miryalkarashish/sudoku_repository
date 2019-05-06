@@ -9,6 +9,7 @@
 
 
 #include <Stepper.h>
+/*this is simple*/
 
 const int stepsPerRevolution_x = 24;//9+9+6 change this to fit the number of steps per revolution
 const int stepsPerRevolution_y = 12; //9+3 3 for spare
